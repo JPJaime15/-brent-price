@@ -15,7 +15,7 @@ with open('modelo_brent.pkl', 'rb') as file_2:
 
 
 #Carregar o DataFrame
-df = pd.read_csv('data\ipea.csv')
+df = pd.read_csv('/mount/src/-brent-price/app.py')
 df['Data'] = pd.to_datetime(df['Data'])
 df = df.sort_values(by='Data', ascending=True).reset_index(drop=True)
 
