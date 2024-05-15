@@ -6,4 +6,4 @@ matplotlib
 beautifulsoup4==4.12.3
 lxml==4.9.4
 requests
-pickle
+joblib
