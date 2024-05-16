@@ -87,6 +87,45 @@ plt.grid(True)
 plt.title('Preços Reais e Previsões dos Preços para as próximas duas semanas')
 plt.show()
 
+from sklearn.svm import SVR
+
+# Load SVR model
+with open('modelo_svr.pkl', 'rb') as file_3:
+    modelo_svr = pickle.load(file_3)
+
+# Fazer previsões com o modelo SVR
+predictions_svr = modelo_svr.predict(x_test)
+
+# Avaliar o modelo SVR
+mse_svr = mean_squared_error(y_test, predictions_svr)
+mae_svr = mean_absolute_error(y_test, predictions_svr)
+
+st.markdown(f'# O erro quadrado médio do SVR é de: {mse_svr:.2f}')
+st.markdown(f'# O erro absoluto médio do SVR é de: {mae_svr:.2f}')
+
+# Plotar os preços reais da semana atual e as previsões para a próxima semana do SVR
+st.markdown("# Previsões do SVR: Uma semana para frente")
+plt.figure(figsize=(10, 5))
+plt.plot(current_week_dates, current_week_prices, 'bo-', label='Preços Atuais')
+plt.plot(next_week_dates, next_week_predictions, 'r--o', label='Previsões para a Próxima Semana (Gradient Boosting)')
+plt.plot(next_week_dates, modelo_svr.predict(last_known_data.reshape(1, -1))[0], 'g--o', label='Previsões para a Próxima Semana (SVR)')
+
+# Incluir texto com os erros do SVR
+plt.text(0.5, 0.95, f'SVR MSE: {mse_svr:.2f}\nSVR MAE: {mae_svr:.2f}', transform=plt.gca().transAxes, fontsize=10, verticalalignment='top')
+
+# Formatar o eixo x para apresentar as datas
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%y-%m-%d'))    # Formatar datas como 'Ano-Mes-Dia'
+plt.gca().xaxis.set_major_locator(mdates.AutoDateLocator())   # Escolher automaticamente a localização das datas
+
+# Melhorar a legibilidade irando as datas e ajustando o espaçamento
+plt.gcf().autofmt_xdate()    # Gira as datas para evitar sobreposição
+
+plt.legend()
+plt.xlabel('Data')
+plt.ylabel('Preço')
+plt.grid(True)
+plt.title('Preços Reais e Previsões dos Preços para as próximas duas semanas')
+plt.show()
 
 st.pyplot(plt)
 
