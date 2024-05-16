@@ -88,6 +88,15 @@ plt.title('Preços Reais e Previsões dos Preços para as próximas duas semanas
 plt.show()
 
 from sklearn.svm import SVR
+import pickle
+
+# Train SVR model
+modelo_svr = SVR(kernel='rbf')
+modelo_svr.fit(x_train, y_train)
+
+# Save SVR model
+with open('modelo_svr.pkl', 'wb') as file:
+    pickle.dump(modelo_svr, file)
 
 # Load SVR model
 with open('modelo_svr.pkl', 'rb') as file_3:
