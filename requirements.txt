@@ -7,8 +7,11 @@ beautifulsoup4==4.12.3
 lxml==4.9.4
 requests
 joblib
+<<<<<<< HEAD
 plotly
 nbformat==5.10.4
 xgboost
 lightgbm
 CatBoost
+=======
+>>>>>>> origin/develop
