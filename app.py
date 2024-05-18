@@ -170,8 +170,7 @@ plt.grid(True)
 plt.title('Preços Reais e Previsões dos Preços para as próximas duas semanas')
 plt.show()
 
-
-    st.pyplot(fig)
+st.pyplot(fig)
 
 # Escolha do modelo para o segundo gráfico
 modelo_selecionado_2 = st.sidebar.selectbox("Selecione o modelo para o segundo gráfico", list(modelos.keys()))
