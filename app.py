@@ -12,10 +12,9 @@ def carregar_e_prever_modelo(modelo_arquivo, x_test):
     modelo = joblib.load(modelo_arquivo)
     return modelo.predict(x_test)
 
-<<<<<<< HEAD
+
 # Carregar o DataFrame
 df = pd.read_csv('/mount/src/-brent-price/data/ipea.csv')
-=======
 st.markdown("# Modelo preditivo do Petróleo Brent! ")
 with open('modelo_brent.pkl', 'rb') as file_2:
     modelo_brent = pickle.load(file_2)
@@ -23,7 +22,7 @@ with open('modelo_brent.pkl', 'rb') as file_2:
 
 #Carregar o DataFrame
 df = pd.read_csv('/mount/src/-brent-price/data/ipea.csv')
->>>>>>> origin/develop
+
 df['Data'] = pd.to_datetime(df['Data'])
 df = df.sort_values(by='Data', ascending=True).reset_index(drop=True)
 
@@ -117,11 +116,11 @@ with st.spinner(f"Carregando e fazendo previsões com {modelo_selecionado_1}..."
     ax.grid(True)
     ax.set_title('Preços Reais e Previsões de Preços para a Próxima Semana')
 
-<<<<<<< HEAD
+
     # Adicionar as métricas de erro no topo do gráfico, centralizadas
     fig.text(0.35, 0.80, f'Mean Squared Error: {mse_1:.2f}', ha='center', va='center', fontsize=12)
     fig.text(0.35, 0.85, f'Mean Absolute Error: {mae_1:.2f}', ha='center', va='center', fontsize=12)
-=======
+
 from sklearn.svm import SVR
 import pickle
 
@@ -170,7 +169,7 @@ plt.ylabel('Preço')
 plt.grid(True)
 plt.title('Preços Reais e Previsões dos Preços para as próximas duas semanas')
 plt.show()
->>>>>>> origin/develop
+
 
     st.pyplot(fig)
 
