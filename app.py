@@ -14,7 +14,7 @@ def carregar_e_prever_modelo(modelo_arquivo, x_test):
 
 <<<<<<< HEAD
 # Carregar o DataFrame
-df = pd.read_csv('C:\\Users\\João Pedro\\Desktop\\brent-price\\data\\ipea.csv')
+df = pd.read_csv('/mount/src/-brent-price/data/ipea.csv')
 =======
 st.markdown("# Modelo preditivo do Petróleo Brent! ")
 with open('modelo_brent.pkl', 'rb') as file_2:
