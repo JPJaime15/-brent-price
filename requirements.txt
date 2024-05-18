@@ -1,0 +1,15 @@
+streamlit
+pandas
+scikit-learn
+numpy
+matplotlib
+beautifulsoup4==4.12.3
+lxml==4.9.4
+requests
+joblib
+plotly
+nbformat==5.10.4
+xgboost
+lightgbm
+CatBoost
+
